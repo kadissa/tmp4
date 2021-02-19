@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Microblog</title>{% endif %}
+</head>
+<body>
+<a href="{{ url_for('index') }}">Home</a>
+<a href="{{ url_for('login') }}">login</a>
+<hr>
+{% with messages = get_flashed_messages() %}
+    <ul>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </ul>
+
+
+{% endwith %}
+{% block content %}{% endblock %}
+</body>
+</html>
